@@ -15,7 +15,7 @@ username.addEventListener("keyup", () => {
 });
 
 saveHighScore= e => {
-    console.log('clicked the save button');
+   // console.log('clicked the save button');
     e.preventDefault();
 
     const score = {
@@ -26,7 +26,7 @@ saveHighScore= e => {
     highScores.push(score);
     highScores.sort((a,b) => b.score - a.score );
     highScores.splice(5);
-    localStorage.setItem('highScore', JSON.stringify(highScores));
+    localStorage.setItem('highScores', JSON.stringify(highScores));
     window.location.assign("/");
 
     //console.log(highScores);
