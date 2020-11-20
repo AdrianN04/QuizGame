@@ -19,6 +19,7 @@ saveHighScore= e => {
     e.preventDefault();
 
     const score = {
+        // modified from math.random to mostRecentScore
         score: mostRecentScore,
         name: username.value,
     };
