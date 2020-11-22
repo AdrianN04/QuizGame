@@ -79,5 +79,24 @@ input {
 
     font-size: 1.8rem;
     border: none;
-    box-shadow: 0 0.1rem 1.4rem  0 rgba(86, 185, 235, 0.5)
+    box-shadow: 0 0.1rem 1.4rem  0 rgba(86, 185, 235, 0.5);
+}
+
+/* loader*/
+#loader {
+    border: 1.6rem solid white;
+    border-radius: 50%;
+    border-top: 1.6rem solid rgb(0, 119, 255);
+    width: 12rem;
+    height: 12rem;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
