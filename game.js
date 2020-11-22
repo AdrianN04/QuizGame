@@ -13,12 +13,32 @@ let availableQuestions = [];
 
 let questions = [];
 
-fetch('Questions.json').then(res => {
+fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy')
+.then(res => {
     return res.json();
 })
 .then(loadedQuestions => {
     console.log(loadedQuestions);
-    questions = loadedQuestions;
+    questions = loadedQuestions.results.map(loadedQuestions => {
+        const formattedQuestion = {
+            question: loadedQuestions.question
+        };
+
+        const answerChoices = [...loadedQuestions.incorrect_answers];
+        formattedQuestion.answer = Math.floor(Math.random()*3) +1;
+        answerChoices.splice(formattedQuestion.answer -1, 
+            0,
+            loadedQuestions.correct_answer
+            );
+
+        answerChoices.forEach((choice, index) => {
+            formattedQuestion["choice" + (index+1)] = choice;
+        });
+
+        return formattedQuestion;
+    });
+    // the following won't be needded for imported questions
+    //questions = loadedQuestions; 
     startGame();
 })
 .catch(err => {
