@@ -3,6 +3,8 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const progressText = document.getElementById('progressText');
 const progressBarFull=document.getElementById('progressBarFull');
 const scoreText = document.getElementById('score');
+const loader = document.getElementById('loader');
+const game = document.getElementById('game');
 // console.log(choices);
 
 let currentQuestion = {};
@@ -39,6 +41,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy')
     });
     // the following won't be needded for imported questions
     //questions = loadedQuestions; 
+    game.classList.remove("hidden");
+    loader.classList.add("hidden");
     startGame();
 })
 .catch(err => {
