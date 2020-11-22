@@ -41,8 +41,6 @@ fetch('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy')
     });
     // the following won't be needded for imported questions
     //questions = loadedQuestions; 
-    game.classList.remove("hidden");
-    loader.classList.add("hidden");
     startGame();
 })
 .catch(err => {
@@ -57,7 +55,9 @@ startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-        getNewQuestion();
+    getNewQuestion();
+    game.classList.remove("hidden");
+    loader.classList.add("hidden");
 };
 
 getNewQuestion = () => {
